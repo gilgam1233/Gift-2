@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+RO:wght@100..400&display=swap" rel="stylesheet">
+  <link href="./RESOURCES/gift.png" rel="shortcut icon"/>
+
+  <link rel="stylesheet" href="CSS/index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+  <script src="./JS/jquery-3.7.1.min.js"></script>
+  <script src="./JS/index.js"></script>
+  <title>Minigame</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <span id="startGame">
+      Play
+
+    </span>
+
+  </div>
+
+  <div class="tool-menu">
+    <p></p>
+   <div class="flex-container">
+     <i class="fa-solid fa-gear" id="setting"></i>
+    <i class="fa-solid fa-volume-high" id="volIcon"></i>
+   </div>
+  </div>
+
+  <div class="point_stat flex hidden">
+    <span>Point: </span>
+    <span>0</span>
+  </div>
+
+
+  <div class="test">
+    <div class="volume-menu">
+      <p>Âm Thanh</p>
+
+      <div class="song flex">
+        <p class="startTime" id="startTime">00:00</p>
+        <input type="range" id="progressBar" value="0" onchange="tuaTocDo(this)">
+        <p class="endTime" id="duration">00:00</p>
+      </div>
+
+      <audio id="audio" src="./AUDIO/Love.mp3"></audio>
+      <div class="flex">
+        <input type="range" id="slider" min="0" max="100" value="10" onchange="hienThiSoVolume(this)">
+        <input type="number" class="inNum" value="10" min="0" max="100" oninput="chuanHoaSo(this,3)">
+
+        <button id="test">Start</button>
+
+      </div>
+      <i class="fa-solid fa-circle-xmark exitVol" id="exitVol"></i>
+    </div>
+  </div>
+
+
+  <div class="main-menu hidden">
+    <p>List group:</p>
+    <div class="groupSelect">
+      <div class="groupChoice" id="girl">
+        Girl Group
+      </div>
+
+      <div class="groupChoice" id="boy">
+        Boy Group
+      </div>
+    </div>
+
+    <i class="fa-solid fa-circle-xmark exitGroup"></i>
+    <i class="fa-solid fa-question question" id="question"></i>
+    <div class="group-contents" id="girl-group">
+      <div class="groupItem">
+        <p>NMIXX</p>
+        <input type="checkbox" name="NMIXX" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>aespa</p>
+        <input type="checkbox" name="aespa" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>Dreamcatchcer</p>
+        <input type="checkbox" name="Dreamcatcher" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>Viviz</p>
+        <input type="checkbox" name="Viviz" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>ITZY</p>
+        <input type="checkbox" name="ITZY" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>XG</p>
+        <input type="checkbox" name="XG" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>BABYMONSTER</p>
+        <input type="checkbox" name="BABYMONSTER" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>LE SSERAFIM</p>
+        <input type="checkbox" name="LESSERAFIM" onchange="xuLyAnHienFinish()">
+      </div>
+    </div>
+    <div class="group-contents hidden" id="boy-group">
+      <div class="groupItem">
+        <p>SEVENTEEN</p>
+        <input type="checkbox" name="SEVENTEEN" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>Stray Kids</p>
+        <input type="checkbox" name="StrayKids" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>KickFlip</p>
+        <input type="checkbox" name="KickFlip" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>TEMPEST</p>
+        <input type="checkbox" name="TEMPEST" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>ATEEZ</p>
+        <input type="checkbox" name="ATEEZ" onchange="xuLyAnHienFinish()">
+      </div>
+      <div class="groupItem">
+        <p>ENHYPEN</p>
+        <input type="checkbox" name="ENHYPEN" onchange="xuLyAnHienFinish()">
+      </div>
+
+    </div>
+    <div class="finish">Finish</div>
+  </div>
+
+  <div class="bangDuLieu hidden">
+    <div>Thông báo</div>
+    <span>Hiện đang có </span>
+    <span>10</span>
+    <span>bài hát</span>
+    <div class="flex">
+      <div>Nhập số lượng bài hát: </div>
+      <input type="number" class="inNum" value="" min="0" max="100">
+    </div>
+    <i class="fa-solid fa-circle-xmark exitDuLieu"></i>
+    <div>
+      <input type="button" value="Hoàn tất">
+    </div>
+
+
+  </div>
+
+
+  <div class="main-game hidden">
+    <audio id="audioGame" src=""></audio>
+    <div class="status-title flex">
+      <div>
+        <span>Track</span>
+        <span id="trackNum">#1</span>
+      </div>
+    </div>
+
+    <div class="status-song flex">
+      <p id="startTime1">00:00</p>
+      <input type="range" id="progressBar1" value="0" onchange="tuaTocDo(this)">
+      <p id="duration1">00:00</p>
+    </div>
+
+    <div class="thanhNgang"></div>
+    <div class="main-game-container">
+      <i class="fa-solid fa-circle-play " id="playGame"></i>
+      <i class="fa-solid fa-rotate-left hidden" id="resetGame"></i>
+      <div class="items-containter" id="items-containter">
+
+        <div class="items hidden"></div>
+        <div class="items hidden"></div>
+        <div class="items hidden"></div>
+        <div class="items hidden"></div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="test">
+    <div class="thongBaoTroChoi hidden">
+      <i class="fa-solid fa-circle-xmark" id="checkSai"></i>
+      <i class="fa-solid fa-circle-check" id="checkDung"></i>
+      <div>Bạn đã đoán sai</div>
+    </div>
+  </div>
+
+  <div class="test">
+    <div class="menu-song hidden">
+      <p>Âm Thanh</p>
+
+      <div class="song flex">
+        <p class="startTime" id="startTime2">00:00</p>
+        <input type="range" id="progressBar2" value="0" onchange="tuaTocDo2(this)">
+        <p class="endTime" id="duration2">00:00</p>
+      </div>
+
+      <audio id="audioPhatLai" src="./AUDIO/Love.mp3"></audio>
+      <div class="flex">
+        <input type="range" id="slider1" min="0" max="100" value="50" onchange="hienThiSoVolume2(this)">
+        <input type="number" class="inNum1" value="50" min="0" max="100" oninput="chuanHoaSo(this,3)">
+
+        <button id="startMusic">Start</button>
+
+      </div>
+      <i class="fa-solid fa-circle-xmark exitVol" id="exitVol2"></i>
+    </div>
+  </div>
+
+  <div class="test">
+    <div class="thongBaoChonNhom hidden">
+      <p>Thông báo</p>
+      <div>- Vui lòng điều chỉnh lại âm lượng phù hợp ở icon volume.
+        <br>- Mỗi nhóm sẽ có 3 bài hát và người chơi sẽ được nghe trong khoảng thời gian nhất định.
+        <br>- Chọn ít nhất 1 nhóm để bắt đầu trò chơi.
+        <br>- Có thể điều chỉnh thời gian nghe nhạc ở icon gear.
+      </div>
+      <i class="fa-solid fa-circle-xmark exitVol" id="exitVol3"></i>
+
+    </div>
+  </div>
+  <div class="test">
+    <div class="thongBaoMusic hidden">
+      <p>Thông báo</p>
+      <div>Bạn có muốn nghe lại bài hát đó không?</div>
+      <div class="thongBaoChon flex">
+        <div id="yesButton">Yes</div>
+        <div id="noButton">No</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="test">
+    <div class="caiDat hidden">
+      <p>Cài đặt</p>
+            <i class="fa-solid fa-circle-xmark exitVol" id="exitVol4"></i>
+
+      <div class="catDatContainer">
+        <div class="catDatItems flex">
+          <div>Thời gian nghe bài hát:</div>
+          <input type="number" value="10" id="thoiGianNghe" onchange="capNhatThoiGianNghe(this)">
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,580 @@
+body {
+    background: url(../RESOURCES/background.png);
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container>span {
+    background-color: bisque;
+    padding: 2rem 2rem;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    border-radius: 50% 50%;
+}
+
+.container>span:hover {
+    user-select: none;
+    cursor: pointer;
+    filter: brightness(0.9);
+    color: darkseagreen;
+    border: solid black 0.1rem;
+}
+
+.hide {
+    display: none;
+}
+
+.flex-container
+{
+    display: flex;
+    justify-content: flex-end;
+    gap:1rem;
+}
+
+.flex-container>i {
+   
+    top:10%;
+    font-size: 1.5rem;
+    padding: 1rem 1rem;
+    background-color: blanchedalmond;
+    border-radius: 50% 50%;
+    /* position: absolute; */
+    right: 5%;
+    /* top:20%; */
+
+}
+
+.flex-container > i:last-child{
+     margin-right: 3%;
+}
+
+.flex-container>i:hover {
+    cursor: pointer;
+    color: lightblue;
+
+}
+
+.tool-menu {
+
+    position: relative;
+    min-width:1rem;
+    min-height: 1rem;
+}
+
+.tool-menu>p {
+    color: transparent;
+    cursor: none;
+    user-select: none;
+}
+
+
+/* Tùy chỉnh tay cầm của thanh trượt */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #007bff;
+    /* Màu của tay cầm */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.inNum {
+    width: 1.5rem;
+}
+
+#test {
+    width: 3.5rem;
+    text-align: center;
+
+}
+
+.volume-menu {
+
+    background-color: antiquewhite;
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    display: none;
+    flex-direction: column;
+    /* sắp xếp từ trên xuống dưới */
+    align-items: center;
+    /* căn giữa theo chiều ngang */
+    gap: 10px;
+    /* khoảng cách giữa các phần tử */
+    position: absolute;
+    top: 5%;
+    border: solid black 0.1rem;
+    z-index: 1000;
+}
+
+.volume-menu>p {
+    font-family: "Playwrite RO", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    user-select: none;
+}
+
+.exitVol {
+    position: absolute;
+    right: 5%;
+    font-size: 1.3rem;
+}
+
+.exitVol:hover {
+    cursor: pointer;
+    color: lightblue;
+}
+
+.main-menu {
+    margin: 0 auto 0;
+    user-select: none;
+    width: 20rem;
+    height: 33rem;
+    background-color: antiquewhite;
+    padding: 1rem 1rem;
+    position: relative;
+    border-radius: 1rem;
+    border-style: groove;
+    border-color: black;
+}
+
+.groupSelect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.groupChoice {
+    background-color: azure;
+    padding: 0.5rem 0.5rem;
+    border-radius: 10%;
+}
+
+.groupChoice:hover {
+    user-select: none;
+    color: burlywood;
+    cursor: pointer;
+    border: solid black 0.1rem;
+}
+
+.groupItem {
+    display: flex;
+    position: relative;
+}
+
+.groupItem>input {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+}
+
+.exitGroup {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+
+.exitGroup:hover {
+    cursor: pointer;
+    color: lightblue;
+}
+
+.finish {
+    background-color: aliceblue;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem 0.5rem;
+    border-radius: 10%;
+    position: absolute;
+    right: 10%;
+    pointer-events: none;
+}
+
+.question:hover {
+    cursor: pointer;
+    color: lightblue;
+}
+
+.finish:hover {
+    cursor: pointer;
+    color: lightblue;
+    border: solid black 0.1rem;
+
+}
+
+.question {
+    position: absolute;
+    right: 12%;
+    top: 5%;
+}
+
+.point_stat {
+    width: fit-content;
+    user-select: none;
+    position: relative;
+    left: 3%;
+    font-size: 1.5rem;
+    gap: 0.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.bangDuLieu {
+    background-color: bisque;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem 1rem;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 1rem;
+    border-color: black;
+    border-style: groove;
+}
+
+.bangDuLieu>div:first-child {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.bangDuLieu>.flex {
+    gap: 0.5rem;
+}
+
+.bangDuLieu>div:last-child {
+    position: relative;
+}
+
+.bangDuLieu>div:last-child>input {
+    margin-left: 65%;
+    margin-top: 5%;
+}
+
+.exitDuLieu {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+}
+
+.exitDuLieu:hover {
+    cursor: pointer;
+    color: lightblue;
+}
+
+.main-game {
+    background-color: antiquewhite;
+    margin: 0 auto;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    border-style: groove;
+    border-color: black;
+    z-index: 100;
+    position: sticky;
+}
+
+.status-title {
+    padding: 1rem 1rem;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    font-size: 1.3rem;
+
+}
+
+.status-title>div {
+    user-select: none;
+}
+
+.status-title>i:first-child:hover,
+.status-title>i:last-child:hover {
+    cursor: pointer;
+    color: lightskyblue;
+}
+
+.status-song {
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    user-select: none;
+}
+
+.main-game-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+}
+
+.items-containter {
+    position: relative;
+    min-width: 30rem;
+    min-height: 13rem;
+    pointer-events: none;
+}
+
+.items {
+    position: absolute;
+    background-color: rgb(184, 228, 255);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    min-width: 8rem;
+    min-height: 2rem;
+    border: solid black 0.1rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+
+}
+
+.items:hover {
+    color: #007bff;
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+
+
+#resetGame:hover {
+    cursor: pointer;
+    background-color: lightskyblue;
+}
+
+#playGame:hover {
+    cursor: pointer;
+    color: lightskyblue;
+}
+
+#resetGame {
+    color: antiquewhite;
+    background-color: black;
+    padding: 0.5rem 0.5rem;
+    border-radius: 50% 50%;
+    position: absolute;
+    z-index: 100;
+    font-size: 2rem;
+}
+
+#playGame {
+    position: absolute;
+    z-index: 100;
+    font-size: 3rem;
+}
+
+.items-containter>.items:nth-child(1) {
+    left: 5%;
+}
+
+.items-containter>.items:nth-child(2) {
+    right: 5%;
+}
+
+.items-containter>.items:nth-child(3) {
+    bottom: 5%;
+    left: 5%;
+}
+
+.items-containter>.items:nth-child(4) {
+    bottom: 5%;
+    right: 5%;
+}
+
+.thanhNgang {
+    min-height: 0.2rem;
+    min-width: 15rem;
+    margin: 0 auto 5%;
+    width: fit-content;
+    background-color: black;
+}
+
+.thongBaoTroChoi {
+    background-color: red;
+    border: solid black 0.1rem;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+
+    padding: 5rem 5rem;
+    border-radius: 1rem 1rem;
+    position: absolute;
+    z-index: 100;
+    /* margin: 0 auto; */
+    top: 20%;
+    /* left: 50%; */
+}
+
+.thongBaoTroChoi>i {
+    font-size: 1.5rem;
+}
+
+.xuatHien {
+    animation: xuatHien 1s;
+}
+
+@keyframes bienMat {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.bienMat {
+    animation: bienMat 1s;
+}
+
+@keyframes xuatHien {
+    from {
+        filter: blur(100px);
+    }
+
+    to {
+        filter: blur(0);
+    }
+}
+
+.test {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-song {
+    display: flex;
+    background-color: antiquewhite;
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    flex-direction: column;
+    /* sắp xếp từ trên xuống dưới */
+    align-items: center;
+    /* căn giữa theo chiều ngang */
+    gap: 10px;
+    /* khoảng cách giữa các phần tử */
+    position: absolute;
+    margin: 5% auto 0;
+    border: solid black 0.1rem;
+    z-index: 1000;
+    top: 10%;
+}
+
+.menu-song>p,
+.thongBaoMusic>p,
+.thongBaoChonNhom>p,
+.caiDat > p {
+    font-family: "Playwrite RO", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    user-select: none;
+}
+
+.thongBaoMusic {
+    position: absolute;
+
+    width: fit-content;
+    height: fit-content;
+    background-color: papayawhip;
+    padding: 1rem 1rem;
+    text-align: center;
+    user-select: none;
+    border-radius: 1rem 1rem;
+    border: solid black 0.1rem;
+    top: 20%;
+    z-index: 1000;
+}
+
+.thongBaoChon {
+    gap: 1rem;
+}
+
+.thongBaoChon>div:first-child,
+.thongBaoChon>div:last-child {
+    background-color: rgb(184, 228, 255);
+    padding: 0.3rem 0.3rem;
+    border-radius: 0.5rem 0.5rem;
+}
+
+.thongBaoChon>div:first-child:hover,
+.thongBaoChon>div:last-child:hover {
+    color: darksalmon;
+    cursor: pointer;
+}
+
+.thongBaoMusic>p+div {
+    margin-bottom: 5%;
+}
+
+.thongBaoChonNhom {
+    display: flex;
+    background-color: antiquewhite;
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    flex-direction: column;
+    /* sắp xếp từ trên xuống dưới */
+    align-items: center;
+    /* căn giữa theo chiều ngang */
+    gap: 10px;
+    /* khoảng cách giữa các phần tử */
+    position: absolute;
+    margin: 5% auto 0;
+    border: solid black 0.1rem;
+    z-index: 1000;
+    top: 10%;
+    user-select: none;
+}
+
+.caiDat{
+      display: flex;
+    background-color: antiquewhite;
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    flex-direction: column;
+    /* sắp xếp từ trên xuống dưới */
+    align-items: center;
+    /* căn giữa theo chiều ngang */
+    gap: 10px;
+    /* khoảng cách giữa các phần tử */
+    position: absolute;
+    margin: 5% auto 0;
+    border: solid black 0.1rem;
+    z-index: 1000;
+    top: 10%;
+    user-select: none;
+}
+
