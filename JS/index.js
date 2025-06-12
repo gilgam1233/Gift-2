@@ -24,6 +24,8 @@ let thoiGianDoan = 2;
 let thoiGianPhatNhacToiDa = 10;
 // ds lưu các phím đã ấn 
 const pressedKeys = new Set();
+// dùng để xác định xem có phát sinh thời gian phát ngẫu nhiên hay không
+let flagNgauNhien = false;
 /*
     đường dẫn - đáp án 1 -  đáp án 2 -  đáp án 3 -  đáp án 4 -  đáp án đúng - thời gian bắt đầu- tên bài hát
     0(path)-1(rs 1)-2(rs 2)-3(rs 3)-4(rs 4)-5(correct rs)-6(time start) - 7(name song)
@@ -75,23 +77,26 @@ let data = {
         "./AUDIO/ENHYPEN/XO (Only If You Say Yes).mp3-TEMPEST-SEVENTEEN-ENHYPEN-ATEEZ-2-100-ENHYPEN/XO (Only If You Say Yes)"],
 };
 
-function kiemTraToHop()
-{
-  document.addEventListener('keydown', (e) => {
- const key = e.key.toLowerCase();
-  pressedKeys.add(key);
+function coPhatSinhNgauNhien(element) {
+    flagNgauNhien = element.checked;
+}
 
-  if (pressedKeys.has('v') && key === 'y') {
+function kiemTraToHop() {
+    document.addEventListener('keydown', (e) => {
+        const key = e.key.toLowerCase();
+        pressedKeys.add(key);
 
-    pressedKeys.clear();
-    window.location.href = "./HTML/main.html";
+        if (pressedKeys.has('v') && key === 'y') {
 
-  }
-});
+            pressedKeys.clear();
+            window.location.href = "./HTML/main.html";
 
-document.addEventListener('keyup', (e) => {
-  pressedKeys.delete(e.key.toLowerCase());
-});
+        }
+    });
+
+    document.addEventListener('keyup', (e) => {
+        pressedKeys.delete(e.key.toLowerCase());
+    });
 }
 
 function chinhSrcVaTen(source, name) {
@@ -100,27 +105,26 @@ function chinhSrcVaTen(source, name) {
     $(".menu-song > p").text(newStr);
 }
 
-function capNhatThoiGianNghe(element)
-{
+function capNhatThoiGianNghe(element) {
     thoiGianDoan = parseInt(element.value);
-    
+
 }
 
 function resetTroChoi() {
     trackList = 1;
     flagChoi = false;
     flagList = false;
-    $("#setting").css("pointer-events","all");
+    $("#setting").css("pointer-events", "all");
 
     $("#trackNum").text(`#${trackList}`);
-    
-     $(".main-game").addClass("bienMat").on("animationend",function(){
+
+    $(".main-game").addClass("bienMat").on("animationend", function () {
         $(this).removeClass("bienMat").addClass("hidden").off("animationend");
-        $("#startGame").removeClass("hidden").addClass("xuatHien").on("animationend",function(){
+        $("#startGame").removeClass("hidden").addClass("xuatHien").on("animationend", function () {
             $(this).removeClass("xuatHien");
         });
         $("#playGame").removeClass("hidden");
-     });
+    });
 }
 
 function gioiHanThoiGianNhac(element) {
@@ -342,7 +346,7 @@ function xuLyGroupChoice() {
     });
 
     $(".finish").on("click", function () {
-        $("#setting").css("pointer-events","none");
+        $("#setting").css("pointer-events", "none");
         $(".main-menu").addClass("hidden");
         $(".main-game").removeClass("hidden");
     });
@@ -584,12 +588,42 @@ $(window).on("load", function () {
         $("#audioGame").prop("volume", $("#slider").val() / 100);
 
         $("#audioGame").attr("src", tokens[0]);
-        $("#audioGame")[0].currentTime = parseInt(tokens[6]);
-        $("#audioGame")[0].play();
-        result = tokens[5];
-        gioiHanThoiGianNhac(tokens[6]);
-        xuLyProgressBarGame(tokens[6]);
-        chinhSrcVaTen(tokens[0], tokens[7]);
+
+
+        if (flagNgauNhien) {
+            let audio2 = document.getElementById("audioGame");
+            audio2.onloadedmetadata = function () {
+
+                let timeAudio = Math.floor(Math.random() * audio2.duration);
+                tokens[6] = timeAudio;
+
+                while (true) {
+                    if (timeAudio + parseInt($("#thoiGianNghe").val()) <= audio2.duration) {
+                        break;
+                    }
+                    tokens[6] = timeAudio;
+                    timeAudio = Math.floor(Math.random() * audio2.duration);
+                }
+                $("#audioGame")[0].currentTime = parseInt(tokens[6]);
+                $("#audioGame")[0].play();
+                result = tokens[5];
+                gioiHanThoiGianNhac(tokens[6]);
+                xuLyProgressBarGame(tokens[6]);
+                chinhSrcVaTen(tokens[0], tokens[7]);
+
+            };
+        }
+        else {
+            $("#audioGame")[0].currentTime = parseInt(tokens[6]);
+
+            $("#audioGame")[0].currentTime = parseInt(tokens[6]);
+            $("#audioGame")[0].play();
+            result = tokens[5];
+            gioiHanThoiGianNhac(tokens[6]);
+            xuLyProgressBarGame(tokens[6]);
+            chinhSrcVaTen(tokens[0], tokens[7]);
+        }
+
     });
 
 
@@ -632,7 +666,7 @@ $(window).on("load", function () {
 
     });
 
-    $("#setting").on("click",function(){
+    $("#setting").on("click", function () {
         $(".caiDat").removeClass("hidden");
     });
 
@@ -644,7 +678,7 @@ $(window).on("load", function () {
         $(".thongBaoChonNhom").addClass("hidden");
     });
 
-    $("#exitVol4").on("click",function(){
+    $("#exitVol4").on("click", function () {
         $(".caiDat").addClass("hidden");
     });
 
@@ -652,7 +686,7 @@ $(window).on("load", function () {
         $(this).addClass("bienMat").on("animationend", function () {
             $(this).removeClass("bienMat").addClass("hidden").off("animationend");
             resetTroChoi();
-         
+
         });
     });
 
