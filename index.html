@@ -227,7 +227,8 @@
       <div>- Vui lòng điều chỉnh lại âm lượng phù hợp ở icon volume.
         <br>- Mỗi nhóm sẽ có 3 bài hát và người chơi sẽ được nghe trong khoảng thời gian nhất định.
         <br>- Chọn ít nhất 1 nhóm để bắt đầu trò chơi.
-        <br>- Có thể điều chỉnh thời gian nghe nhạc ở icon gear.
+        <br>- Có thể điều chỉnh thời gian nghe nhạc ở cài đặt.
+        <br>- Có thể chọn sinh số thời gian phát ngẫu nhiên ở cài đặt.
       </div>
       <i class="fa-solid fa-circle-xmark exitVol" id="exitVol3"></i>
 
@@ -253,6 +254,11 @@
         <div class="catDatItems flex">
           <div>Thời gian nghe bài hát:</div>
           <input type="number" value="10" id="thoiGianNghe" onchange="capNhatThoiGianNghe(this)">
+        </div>
+        <div class="caiDatItems flex">
+          <div>Phát sinh thời gian phát ngẫu nhiên</div>
+            <input type="checkbox" value="10" id="checkBoxCaiDat" onchange="coPhatSinhNgauNhien(this)">
+
         </div>
       </div>
     </div>
